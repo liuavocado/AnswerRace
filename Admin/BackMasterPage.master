@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="BackMasterPage.master.cs" Inherits="Admin_BackMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style type="text/css">
+        body {
+      
+     
+        }
+      
+        #container {
+         margin:0px;
+     
+        }
+        header{
+            text-align:center;
+            background-color:#188cb9;
+            font:15pt 宋体;
+            color:#e2ecf0;
+          
+        }
+         #nav {
+         background-color:#e2ecf0;
+         width:1143px;  
+         margin-right:0px;
+         margin-left:0px;
+         text-align:right;
+         }
+
+        #left{
+            width:185px;
+            float:left;
+            height:466px; 
+            background-image:url(images/back1.gif);
+            background-size:180px 495px;
+            margin:0px;
+            background-repeat:no-repeat;
+           
+        }
+        #right{
+            float:left;
+            width:800px;
+        }
+       
+      
+        footer {
+            clear:both;
+            height:50px;
+            text-align:center;
+            background-color:#d2d2d2;
+
+        }
+
+         .aaa{
+          background-color:#188cb9;
+          border-style:solid;
+          border-color:#188cb9;
+          border-radius:5px;
+          /*background-image:url(images/back2.gif);*/
+          text-align:center;
+         
+          }
+        .gv {
+          width:700px;
+          margin:0 auto;
+          text-align:center;
+        }
+
+    </style>
+    
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+     <form id="form1" runat="server">
+      <div id="container">
+       <header> 
+           <h1>后台管理系统</h1><hr />
+       </header>
+          
+      
+           <div id="left">
+              <div style ="height:50px"></div>
+              <div style="margin-left:10px;margin-top:10px">
+                  <asp:TreeView ID="TreeView1" runat="server" ImageSet="Simple" RootNodeStyle-CssClass="aaa">
+                      <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                      <Nodes>
+                          <asp:TreeNode Text="竞赛者信息管理" Value="竞赛者信息管理">
+                              <asp:TreeNode NavigateUrl="~/Admin/ManagePlayer.aspx" Text="竞赛者基本信息" Value="竞赛者基本信息"></asp:TreeNode>
+                          </asp:TreeNode>
+                          <asp:TreeNode Text="&nbsp;试题信息管理" Value="试题信息管理">
+                              <asp:TreeNode NavigateUrl="~/Admin/ManageTest.aspx" Text="试题基本信息" Value="试题基本信息"></asp:TreeNode>
+                              <asp:TreeNode NavigateUrl="~/Admin/TestAdd.aspx" Text="添加试题信息" Value="添加试题信息"></asp:TreeNode>
+                          </asp:TreeNode>
+                          <asp:TreeNode NavigateUrl="~/Admin/ManageResult.aspx" Text="&nbsp;竞赛结果管理" Value="竞赛结果管理">
+                              <asp:TreeNode NavigateUrl="~/Admin/ManageResult.aspx" Text="竞赛结果基本信息" Value="竞赛结果基本信息"></asp:TreeNode>
+                          </asp:TreeNode>
+                          <asp:TreeNode Text="管理员信息管理" Value="管理员信息管理">
+                              <asp:TreeNode NavigateUrl="~/Admin/Administrator.aspx" Text="超级管理员管理" Value="超级管理员管理"></asp:TreeNode>
+                              <asp:TreeNode  NavigateUrl="~/Admin/AdminUpdate.aspx" Text="修改密码" Value="修改密码"></asp:TreeNode>
+                              <%--<asp:TreeNode NavigateUrl="~/Admin/AddAdmin.aspx" Text="管理员注册" Value="管理员注册"></asp:TreeNode>--%>
+                          </asp:TreeNode>
+                      </Nodes>
+                      <NodeStyle Font-Names="宋体" Font-Size="11pt" ForeColor="black" HorizontalPadding="0px" NodeSpacing="0px" VerticalPadding="0px" />
+                      <ParentNodeStyle Font-Bold="False" />
+                      <SelectedNodeStyle Font-Underline="false" ForeColor="#e2ecf0" HorizontalPadding="0px" VerticalPadding="0px" />
+                  </asp:TreeView>
+
+              </div>
+           </div>
+       
+       <div id="right">
+          
+            <asp:ContentPlaceHolder ID="cphRight" runat="server">
+            </asp:ContentPlaceHolder>
+       </div>
+       <footer>
+          <hr /> 版权所有
+      </footer>
+     </div>
+    </form>
+
+</body>
+</html>
